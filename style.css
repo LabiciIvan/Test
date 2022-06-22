@@ -6,3 +6,9 @@ body {
     align-items: center;
     line-height: 10rem;
 }
+
+.info {
+
+    text-decoration: none;
+    color: orange;
+}
