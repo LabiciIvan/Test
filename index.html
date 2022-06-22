@@ -1,16 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-    <link rel="stylesheet" href="style.css">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function onSubmit(token) {
+      // https://github.com/ambethia/recaptcha/issues/302
+      let form = document.getElementById("contactForm");
+      if (form.checkValidity()) {
+        form.submit();
+      } else {
+        grecaptcha.reset();
+        form.reportValidity();
+      }
+    }
+  </script>
+  <link rel="stylesheet" media="all" href="https://amdaris.com/wp-content/themes/amdaris/style.css">
+  <link rel="stylesheet" media="all" href="https://use.typekit.net/nah8pln.css"> 
+  <script type="application/javascript" src="/static/iframeResizer.contentWindow.min.js"></script>
 </head>
+
 <body>
-    <a  href="" class="info">UK, Scandinavia, Germany +44 117 935 3444</a >
-    <a  href="" class="info">Eastern Europe +40 (356) 171 535</a >
-    <a  href="" class="info">Middle east +971 505 229 876</a >
-    <a  href="" class="info"></a >
+
+<!-- Contact Form Module -->
+<section class="contact" id="contact-us">
+  <div class="contact__col--left">
+    <h2 class="contact__title">Contact Us</h2>
+      <p class="contact__question">
+        <b>How can we help today?</b><br><br>
+        Fill in the form for a call back <br> <br>
+        Or give us a call on <br><br>
+      </p>
+      <div class="contact__numbers">
+          <div class="row">
+            <div class="contact__location">UK</div>
+            <div class="contact__number">+44 (0)117 935 3444</div>
+          </div>
+          <div class="row">
+            <div class="contact__location">Moldova</div>
+            <div class="contact__number">+373 60 755 228</div>
+          </div>
+          <div class="row">
+            <div class="contact__location">Romania</div>
+            <div class="contact__number">+40 (356) 171 535</div>
+          </div>
+          <div class="row">
+            <div class="contact__location">UAE</div>
+            <div class="contact__number">+971 505 229 876</div>
+          </div>
+      </div>
+  </div>
+
+  <div class="contact__col--right">
+
+      <div>
+        Thank you for contacting us! We'll respond to your request shortly within 24-48h.
+      </div>
+  
+      <div role="form" class="wpcf7" id="wpcf7-f363-o1" lang="en-US" dir="ltr">
+        <form action="." method="post" class="wpcf7-form init" id="contactForm">
+
+          <div class="form_container">
+            <label class="label-input">Name</label>
+            <input type="text" name="name" value="" size="40"
+                   class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required contact__input"
+                   required/>
+
+            <label class="label-input">Company</label>
+            <input type="text" name="company" value="" size="40"
+                   class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required contact__input"
+                   required/>
+           
+            <label class="label-input">Email</label>
+            <input type="email" name="email" value="" size="40"
+                   class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email contact__input"
+                   required/>
+  
+            <label class="label-input">Phone</label>
+            <input type="tel" name="phone_no" value="" size="40"
+                   class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel contact__input"
+                   required/>
+  
+            <label class="label-input">Your Message</label>
+            <textarea name="message" cols="40" rows="10" maxlength="1000"
+                      class="wpcf7-form-control wpcf7-textarea contact__input contact__message"
+                      required
+            ></textarea>
+        
+            <button
+                id="submitbtn"
+                class="btn btn-submit g-recaptcha"
+                data-sitekey="{{ settings.RECAPTHA_SITE_KEY }}"
+                data-callback='onSubmit'
+                data-action='submit'
+            >Send</button>
+
+      
+
+          </div>
+        </form>
+      </div>
+    
+    <p class="contact__privacy">
+      Here at Amdaris we take your privacy seriously and will only use your personal information to
+      administer your account and to provide the products and services you have requested from us.
+      We will never share your data. For more information on how to unsubscribe, as well as our
+      privacy practices and commitment to protecting your privacy, check out our <a
+        href="https://amdaris.com/privacy-policy/" target="_parent">Privacy Policy</a> or get in touch with us at <a
+        href="mailto:privacy@amdaris.com">privacy@amdaris.com</a>
+    </p>
+  </div>
+</section>
+
 </body>
 </html>
