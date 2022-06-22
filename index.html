@@ -3,11 +3,20 @@
 <head>
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <script>
+    function onSubmit(token) {
+      // https://github.com/ambethia/recaptcha/issues/302
+      let form = document.getElementById("contactForm");
+      if (form.checkValidity()) {
+        form.submit();
+      } else {
+        grecaptcha.reset();
+        form.reportValidity();
+      }
+    }
   </script>
   <link rel="stylesheet" media="all" href="https://amdaris.com/wp-content/themes/amdaris/style.css">
   <link rel="stylesheet" media="all" href="https://use.typekit.net/nah8pln.css"> 
   <script type="application/javascript" src="/static/iframeResizer.contentWindow.min.js"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
