@@ -3,20 +3,11 @@
 <head>
   <script src="https://www.google.com/recaptcha/api.js"></script>
   <script>
-    function onSubmit(token) {
-      // https://github.com/ambethia/recaptcha/issues/302
-      let form = document.getElementById("contactForm");
-      if (form.checkValidity()) {
-        form.submit();
-      } else {
-        grecaptcha.reset();
-        form.reportValidity();
-      }
-    }
   </script>
   <link rel="stylesheet" media="all" href="https://amdaris.com/wp-content/themes/amdaris/style.css">
   <link rel="stylesheet" media="all" href="https://use.typekit.net/nah8pln.css"> 
   <script type="application/javascript" src="/static/iframeResizer.contentWindow.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -87,11 +78,7 @@
             ></textarea>
         
             <button
-                id="submitbtn"
-                class="btn btn-submit g-recaptcha"
-                data-sitekey="{{ settings.RECAPTHA_SITE_KEY }}"
-                data-callback='onSubmit'
-                data-action='submit'
+   
             >Send</button>
 
       
@@ -105,8 +92,8 @@
       administer your account and to provide the products and services you have requested from us.
       We will never share your data. For more information on how to unsubscribe, as well as our
       privacy practices and commitment to protecting your privacy, check out our <a
-        href="https://amdaris.com/privacy-policy/" target="_parent">Privacy Policy</a> or get in touch with us at <a
-        href="mailto:privacy@amdaris.com">privacy@amdaris.com</a>
+         target="_parent">Privacy Policy</a> or get in touch with us at <a
+        >privacy@amdaris.com</a>
     </p>
   </div>
 </section>
